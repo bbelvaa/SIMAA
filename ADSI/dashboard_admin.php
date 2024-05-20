@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['username']) || $_SESSION['role'] != 'admin') {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,13 +28,13 @@
         <aside class="sidebar">
             <div class="profile">
                 <img src="img/user.svg" alt="User Icon" class="profile-icon">
-                <h2>RIO</h2>
+                <h2>RAFLI</h2>
                 <p class="role">Administrator</p>
             </div>
             <ul class="menu">
-                <li class="active"><a href="#">Dashboard</a></li>
-                <li><a href="#">Kelola Daftar Aset</a></li>
-                <li><a href="#">Permintaan Aset</a></li>
+                <li class="active"><a href="dashboard_admin.php">Dashboard</a></li>
+                <li><a href="kelola_aset.php">Kelola Daftar Aset</a></li>
+                <li><a href="permintaan_aset.php">Permintaan Aset</a></li>
             </ul>
         </aside>
         <main class="main-content">
