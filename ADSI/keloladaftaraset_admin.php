@@ -1,16 +1,15 @@
 <?php
 include 'koneksi.php'; 
-include 'search.php';
-
+include 'pagination.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SIMAA</title>
-    <link rel="stylesheet" type="text/css" href="styles/daftaraset_pegawai.css">
+    <title>SIMAA - Kelola Daftar Aset</title>
+    <link rel="stylesheet" type="text/css" href="styles/keloladaftaraset_admin.css">
 </head>
-<body>
-<header>
+    <header>
         <h1>SIMAA</h1>
     </header>
     <nav>
@@ -25,27 +24,24 @@ include 'search.php';
         </ul>
     </nav>
     <div class="container">
-        <aside class="sidebar">
+        <div class="sidebar">
             <div class="profile">
-                <img src="img/user.svg" alt="User Icon" class="profile-icon">
-                <h2>BELVA</h2>
-                <p class="role">Pegawai</p>
+                <img src="img/user.svg" alt="Profile Icon" class="profile-icon">
+                <h2>RAFLI</h2>
+                <p class="role">Administrator</p>
             </div>
             <ul class="menu">
-                <li><a href="dashboard_pegawai.php">Dashboard</a></li>
-                <li class="active"><a href="daftaraset_pegawai.php">Daftar Aset</a></li>
-                <li><a href="laporanaset_pegawai.php">Laporan Kondisi Aset</a></li>
+                <li><a href="dashboard_admin.php">Dashboard</a></li>
+                <li class="active"><a href="keloladaftaraset_admin.php">Kelola Daftar Aset</a></li>
+                <li><a href="permintaanaset_admin.php">Permintaan Aset</a></li>
             </ul>
-        </aside>
+        </div>
         <main class="main-content">
             <div class="table-container">
                 <h2>Daftar Aset</h2>
-                <div class="search-container">
-                <form method="GET" action="daftaraset_pegawai.php">
-                        <input type="text" name="search" placeholder="Cari aset" class="search-bar" value="<?php echo htmlspecialchars($search); ?>">
-                        <button type="submit" class="search-button">Cari</button>
-                    </form>
-                </div>
+                <a href="tambahaset.php">
+                    <button class="add-asset-button">TAMBAH ASET BARU</button>
+                </a>
                 <table border="1">
                     <thead>
                         <tr>
@@ -53,6 +49,7 @@ include 'search.php';
                             <th>Jenis Aset</th>
                             <th>Kondisi Aset</th>
                             <th>Jumlah</th>
+                            <th>Deskripsi</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -65,15 +62,17 @@ include 'search.php';
                                 echo "<td>" . $row["jenis"] . "</td>";
                                 echo "<td>" . $row["kondisi"] . "</td>";
                                 echo "<td>" . $row["jumlah"] . "</td>";
+                                echo "<td>" . $row["deskripsi"] . "</td>";
                                 echo '<td>
-                                        <a href="detailaset.php?id=' . $row["id_aset"] . '"><img src="img/info.svg" 
-                                        alt="Info Icon" class="info-icon"></a>
-                                        <a href="permintaan_pegawai.php?id=' . $row["id_aset"] . '" class="request-button">Permintaan</a>
+                                        <a href="editaset.php?id=' . $row["id_aset"] . '"><img src="img/edit.svg" 
+                                        alt="Edit Icon" class="info-icon"></a>
+                                        <a href="deleteaset.php?id=' . $row["id_aset"] . '"><img src="img/delete.svg" 
+                                        alt="Delete Icon" class="info-icon"></a>
                                       </td>';
                                 echo "</tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='5'>Tidak ada data</td></tr>";
+                            echo "<tr><td colspan='6'>Tidak ada data</td></tr>";
                         }
                         ?>
                     </tbody>
@@ -96,4 +95,3 @@ include 'search.php';
     </div>
 </body>
 </html>
-

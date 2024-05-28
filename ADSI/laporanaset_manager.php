@@ -1,13 +1,14 @@
 <?php
 include 'koneksi.php'; 
 include 'search.php';
+include 'pagination.php';
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>SIMAA</title>
-    <link rel="stylesheet" type="text/css" href="styles/daftaraset_pegawai.css">
+    <link rel="stylesheet" type="text/css" href="styles/laporanaset_manager.css">
 </head>
 <body>
 <header>
@@ -28,13 +29,12 @@ include 'search.php';
         <aside class="sidebar">
             <div class="profile">
                 <img src="img/user.svg" alt="User Icon" class="profile-icon">
-                <h2>BELVA</h2>
-                <p class="role">Pegawai</p>
+                <h2>Irfan</h2>
+                <p class="role">Manager</p>
             </div>
             <ul class="menu">
                 <li><a href="dashboard_pegawai.php">Dashboard</a></li>
-                <li class="active"><a href="daftaraset_pegawai.php">Daftar Aset</a></li>
-                <li><a href="laporanaset_pegawai.php">Laporan Kondisi Aset</a></li>
+                <li class="active"><a href="laporankondisi_manager.php">Laporan Aset</a></li>
             </ul>
         </aside>
         <main class="main-content">
@@ -53,6 +53,7 @@ include 'search.php';
                             <th>Jenis Aset</th>
                             <th>Kondisi Aset</th>
                             <th>Jumlah</th>
+                            <th>Deskripsi</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -65,15 +66,16 @@ include 'search.php';
                                 echo "<td>" . $row["jenis"] . "</td>";
                                 echo "<td>" . $row["kondisi"] . "</td>";
                                 echo "<td>" . $row["jumlah"] . "</td>";
+                                echo "<td>" . $row["deskripsi"] . "</td>";
                                 echo '<td>
-                                        <a href="detailaset.php?id=' . $row["id_aset"] . '"><img src="img/info.svg" 
+                                        <a href="detailaset.php?id=' . $row["id"] . '"><img src="img/info.svg" 
                                         alt="Info Icon" class="info-icon"></a>
-                                        <a href="permintaan_pegawai.php?id=' . $row["id_aset"] . '" class="request-button">Permintaan</a>
+                                        <a href="permintaan_pegawai.php?id=' . $row["id"] . '" class="request-button">Permintaan</a>
                                       </td>';
                                 echo "</tr>";
                             }
                         } else {
-                            echo "<tr><td colspan='5'>Tidak ada data</td></tr>";
+                            echo "<tr><td colspan='6'>Tidak ada data</td></tr>";
                         }
                         ?>
                     </tbody>

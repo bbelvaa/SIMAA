@@ -10,7 +10,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 'admin') {
 <html lang="en">
 <head>
     <title>SIMAA</title>
-    <link rel="stylesheet" type="text/css" href="dashboard_admin.css">
+    <link rel="stylesheet" type="text/css" href="styles/dashboard_admin.css">
 </head>
 <body>
     <header>
@@ -18,6 +18,9 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 'admin') {
     </header>
     <nav>
         <ul>
+            <li class="logout">
+                <a href="logout.php">Logout</a>
+            </li>
             <li class="icon">
                 <img src="img/user.svg" alt="Icon">
                 <i class="arrow down"></i>
@@ -33,7 +36,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 'admin') {
             </div>
             <ul class="menu">
                 <li class="active"><a href="dashboard_admin.php">Dashboard</a></li>
-                <li><a href="kelola_aset.php">Kelola Daftar Aset</a></li>
+                <li><a href="keloladaftaraset_admin.php">Kelola Daftar Aset</a></li>
                 <li><a href="permintaan_aset.php">Permintaan Aset</a></li>
             </ul>
         </aside>
