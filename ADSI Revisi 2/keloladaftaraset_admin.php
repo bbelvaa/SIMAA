@@ -33,7 +33,7 @@ include 'pagination.php';
             <ul class="menu">
                 <li><a href="dashboard_admin.php">Dashboard</a></li>
                 <li class="active"><a href="keloladaftaraset_admin.php">Kelola Daftar Aset</a></li>
-                <li><a href="permintaanaset_admin.php">Permintaan Aset</a></li>
+                <li><a href="permintaan_aset_admin.php">Permintaan Aset</a></li>
             </ul>
         </div>
         <main class="main-content">
