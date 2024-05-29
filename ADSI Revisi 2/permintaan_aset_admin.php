@@ -7,7 +7,6 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 'admin') {
 
 include 'koneksi.php';
 
-// Query untuk mengambil data permintaan aset
 $query = "
 SELECT 
     p.id_permintaan, 
@@ -25,7 +24,6 @@ JOIN
 ORDER BY 
     p.tanggal DESC";
 
-// Menjalankan query dan menangkap error
 $result = mysqli_query($conn, $query);
 
 if (!$result) {
@@ -59,7 +57,7 @@ if (!$result) {
     <aside class="sidebar">
         <div class="profile">
             <img src="img/user.svg" alt="User Icon" class="profile-icon">
-            <h2>RIO</h2>
+            <h2>RAFLI</h2>
             <p class="role">Administrator</p>
         </div>
         <ul class="menu">
